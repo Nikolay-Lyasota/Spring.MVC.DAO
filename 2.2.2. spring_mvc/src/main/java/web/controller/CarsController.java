@@ -14,11 +14,11 @@ public class CarsController {
     CarService carService;
 
     @GetMapping("/cars")
-    public String getCars(@RequestParam(value = "count", required = false) Integer count, Model model) {
-        if(count != null) {
-            model.addAttribute("listCars",carService.getCars(count).toString());
-           // model.addAttribute("carsMessage", String.format("%d Selected Cars: ",count) + carService.getCars(count).toString());
-            System.out.println(String.format("%d Selected Cars: ",count) + carService.getCars(count).toString().replaceAll("[\\[\\]]","").replaceAll(",","\n"));
-        } return "cars";
+    public String getCars(@RequestParam(required = false) Integer count, Model model) {
+        if(count == null || count > 5) {
+            count = 5;
+        }
+        model.addAttribute("listCars",carService.getCars(count));
+        return "cars";
     }
 }

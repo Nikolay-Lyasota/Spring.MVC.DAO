@@ -35,5 +35,9 @@ public class CarsConfig {
     @Order(5)
     public Car car5() {
         return new Car("car5",500,40.1);
+    } @Bean
+    @Order(6)
+    public Car car6() {
+        return new Car("car6",506,41.1);
     }
 }
