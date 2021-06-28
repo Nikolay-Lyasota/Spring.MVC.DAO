@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <style>
+        table th,table td {padding: 7px;}
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>MaxSpeed</th>
+            <th>FuelConsumption</th>
+        </tr>
+
+        <tr th:each="car, state : ${listCars}"
+            class="row" th:classappend="${state.odd} ? 'odd-row' : 'even-row'">
+
+            <td th:utext="${state.count}">Name</td>
+            <td th:utext="${car.name}">Name</td>
+            <td th:utext="${car.maxSpeed}">MaxSpeed</td>
+
+        </tr>
+
+    </table>
+
+
+
+
+
+
+<p th:text="${carsMessage}"></p>
+
+
+
+</body>
+</html>
