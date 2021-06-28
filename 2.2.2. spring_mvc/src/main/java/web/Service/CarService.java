@@ -13,7 +13,7 @@ public class CarService {
     @Autowired
     private List<Car> repo;
 
-    public List<Car> getCars(int carsCount) {
-        return repo.stream().limit(carsCount).collect(Collectors.toList());
+    public List<Car> getCars() {
+        return repo;
     }
 }

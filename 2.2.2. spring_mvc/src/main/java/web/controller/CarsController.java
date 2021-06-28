@@ -5,7 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import web.Model.Car;
 import web.Service.CarService;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class CarsController {
@@ -15,10 +19,11 @@ public class CarsController {
 
     @GetMapping("/cars")
     public String getCars(@RequestParam(required = false) Integer count, Model model) {
-        if(count == null || count > 5) {
+        if (count == null || count > 5) {
             count = 5;
         }
-        model.addAttribute("listCars",carService.getCars(count));
+        List<Car> collect = carService.getCars().stream().limit(count).collect(Collectors.toList());
+        model.addAttribute("listCars", collect);
         return "cars";
     }
 }
