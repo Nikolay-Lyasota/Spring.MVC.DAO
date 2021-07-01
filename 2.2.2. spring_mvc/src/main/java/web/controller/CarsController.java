@@ -9,7 +9,6 @@ import web.Model.Car;
 import web.Service.CarService;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 public class CarsController {
@@ -17,13 +16,11 @@ public class CarsController {
     @Autowired
     private CarService carService;
 
+
     @GetMapping("/cars")
     public String getCars(@RequestParam(required = false) Integer count, Model model) {
-        if (count == null || count > 5) {
-            count = 5;
-        }
-        List<Car> collect = carService.getCars().stream().limit(count).collect(Collectors.toList());
-        model.addAttribute("listCars", collect);
+        List<Car> listCars = carService.getCars(count);
+        model.addAttribute("listCars", listCars);
         return "cars";
     }
 }
