@@ -1,9 +1,8 @@
-package web.Service;
+package web.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Service;
-import web.Model.Car;
+import web.model.Car;
 import web.dao.CarDao;
 
 import java.util.List;

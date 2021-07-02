@@ -2,7 +2,7 @@ package web.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import web.Model.Car;
+import web.model.Car;
 
 import java.util.List;
 

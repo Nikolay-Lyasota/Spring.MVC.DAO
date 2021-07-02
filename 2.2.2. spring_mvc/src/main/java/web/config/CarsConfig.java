@@ -3,10 +3,7 @@ package web.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-import web.Model.Car;
-
-import java.util.ArrayList;
-import java.util.List;
+import web.model.Car;
 
 @Configuration
 public class CarsConfig {
